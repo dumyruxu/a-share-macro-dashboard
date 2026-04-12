@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A股宏观看板</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@500;700&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="hero">
+      <div class="hero__grid"></div>
+      <div class="hero__inner">
+        <p class="hero__eyebrow">QuantTrading · 宏观周度</p>
+        <h1 class="hero__title" id="boardTitle">A股宏观看板</h1>
+        <div class="hero__meta" id="metaBar"></div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="panel panel--summary" aria-labelledby="summary-heading">
+        <div class="panel__head">
+          <h2 id="summary-heading" class="panel__title">摘要</h2>
+          <span class="panel__tag">5 行以内结论</span>
+        </div>
+        <div class="summary" id="summaryBlock"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="kpi-heading">
+        <div class="panel__head">
+          <h2 id="kpi-heading" class="panel__title">指标卡</h2>
+          <span class="panel__tag">KPI · 绿 / 黄 / 红</span>
+        </div>
+        <div class="kpi-grid" id="kpiGrid"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="framework-heading">
+        <div class="panel__head">
+          <h2 id="framework-heading" class="panel__title">四象限框架</h2>
+          <span class="panel__tag">增长 / 通胀 / 流动性 / 风险偏好</span>
+        </div>
+        <div class="quad-grid" id="quadGrid"></div>
+      </section>
+
+      <div class="split">
+        <section class="panel" aria-labelledby="cn-heading">
+          <div class="panel__head">
+            <h2 id="cn-heading" class="panel__title">A股 · 结构与资金</h2>
+          </div>
+          <div id="cnBlock"></div>
+        </section>
+        <section class="panel" aria-labelledby="us-heading">
+          <div class="panel__head">
+            <h2 id="us-heading" class="panel__title">美股对照</h2>
+          </div>
+          <div id="usBlock"></div>
+        </section>
+      </div>
+
+      <section class="panel" aria-labelledby="scenario-heading">
+        <div class="panel__head">
+          <h2 id="scenario-heading" class="panel__title">情景推演</h2>
+        </div>
+        <div class="scenario-row" id="scenarioRow"></div>
+      </section>
+
+      <section class="panel panel--watch" aria-labelledby="watch-heading">
+        <div class="panel__head">
+          <h2 id="watch-heading" class="panel__title">本周关注</h2>
+          <span class="panel__tag">Watchlist · 触发器</span>
+        </div>
+        <ol class="watch-list" id="watchList"></ol>
+      </section>
+    </main>
+
+    <footer class="foot" id="foot"></footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
