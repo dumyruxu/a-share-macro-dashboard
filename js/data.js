@@ -33,11 +33,11 @@ window.DASHBOARD_DATA = {
   kpis: [
     {
       dim: "增长",
-      name: "制造业 PMI（4月）",
-      value: "待填入",
+      name: "官方制造业 PMI（4月）",
+      value: "50.3%",
       delta:
-        "⚠️ 4月PMI已于4月30日发布，请前往 stats.gov.cn 查询实际数字填入。重点：新出口订单分项是关税冲击的直接验证。上周未填，本周请补上。",
-      signal: "yellow",
+        "2026年4月（4/30发布）；较3月50.4%微降0.1pct，仍在荣枯线上方，关税冲击下制造业维持扩张，韧性超预期。重点关注新出口订单分项——是关税影响出口的直接验证指标。",
+      signal: "green",
       updatedAt: "2026-04-30",
       source: "https://www.stats.gov.cn",
       sourceLabel: "国家统计局·4月PMI",
@@ -45,35 +45,35 @@ window.DASHBOARD_DATA = {
     {
       dim: "增长",
       name: "财新制造业 PMI（4月）",
-      value: "待填入",
+      value: "52.2%",
       delta:
-        "4月财新PMI已发布，请查询后填入。与官方PMI对比，判断大型国企 vs 中小民企的分化。上周未填，本周请补上。",
-      signal: "yellow",
-      updatedAt: "2026年5月初",
+        "2026年4月（4/29发布）；较官方PMI 50.3%高出1.9pct，中小民营企业景气度明显强于大型国企。官方与财新PMI双双扩张，增长信号双重确认，积极。",
+      signal: "green",
+      updatedAt: "2026-04-29",
       source: "https://www.pmi.caixin.com",
       sourceLabel: "财新PMI",
     },
     {
       dim: "通胀",
-      name: "CPI 同比（4月）",
-      value: "待填入",
+      name: "CPI 同比",
+      value: "+0.9%（Q1均值）",
       delta:
-        "4月CPI预计本周发布（5月12日前后）。关税+油价双重因素影响，关注读数是否上行。上周沿用3月+1.0%，本周如有新数据请更新。",
+        "Q1 2026均值+0.9%（4/17发布）；4月单月CPI尚未发布，预计5月12-15日公布。关税+布伦特$101双重背景下，4月读数走向值得关注。",
       signal: "yellow",
-      updatedAt: "待更新",
+      updatedAt: "2026-04-17",
       source: "https://www.stats.gov.cn",
-      sourceLabel: "国家统计局·4月CPI/PPI",
+      sourceLabel: "国家统计局·Q1 CPI",
     },
     {
       dim: "通胀",
-      name: "PPI 同比（4月）",
-      value: "待填入",
+      name: "PPI 同比",
+      value: "+0.5%（3月）",
       delta:
-        "4月PPI预计本周发布。布伦特从$108回落至$101，对上游工业品价格支撑略有减弱；但仍处$100以上，PPI维持正区间概率较高。",
+        "4月PPI尚未发布，预计与4月CPI同步（5月12-15日）。布伦特$101仍处百元以上，对上游工业品价格有支撑，4月PPI大概率维持正区间。",
       signal: "yellow",
-      updatedAt: "待更新",
+      updatedAt: "2026-04-10",
       source: "https://www.stats.gov.cn",
-      sourceLabel: "国家统计局·同上",
+      sourceLabel: "国家统计局·3月PPI",
     },
     {
       dim: "流动性",
@@ -110,14 +110,25 @@ window.DASHBOARD_DATA = {
     },
     {
       dim: "市场",
-      name: "北向资金（周累计）",
-      value: "请手填当周合计",
+      name: "南向资金（日净买入）",
+      value: "131.7 亿元",
       delta:
-        "请查东财「沪深港通历史数据」本周（5月4日-5月8日）各日净买额加总后填入。上周也未填，请一并补上。",
-      signal: "yellow",
-      updatedAt: "周收盘后",
+        "5月8日：沪股通南向30.43亿 + 深股通南向101.26亿 = 合计131.7亿元净流入港股。南向资金持续流入港股，反映内地投资者对港股的配置意愿。注：北向资金（外资买A股）自2024年2月起停止每日披露。",
+      signal: "green",
+      updatedAt: "2026-05-08",
       source: "https://data.eastmoney.com/hsgt/hsgtV2.html",
       sourceLabel: "东方财富·沪深港通",
+    },
+    {
+      dim: "市场",
+      name: "全A成交额",
+      value: "请手填",
+      delta:
+        "请查东财首页或行情页面，填入本周日均或周合计成交额（亿元）。成交额放量=市场活跃；缩量=观望。",
+      signal: "yellow",
+      updatedAt: "周收盘后",
+      source: "https://data.eastmoney.com",
+      sourceLabel: "东方财富·行情中心",
     },
     {
       dim: "市场",
@@ -144,9 +155,9 @@ window.DASHBOARD_DATA = {
     {
       dim: "海外",
       name: "美 10Y 国债 DGS10",
-      value: "约 4.25%",
+      value: "4.41%",
       delta:
-        "FOMC后美债收益率小幅下行（市场预期降息路径改善）；当前约4.25%，较此前4.33%有所回落。请查FRED最新数据。",
+        "FOMC后收益率从4.33%小幅反弹至4.41%，说明市场对降息路径仍存分歧；5月12日CPI将是方向性决定因素。收益率偏高对全球成长股估值有压制。",
       signal: "yellow",
       updatedAt: "2026-05-08",
       source: "https://fred.stlouisfed.org/series/DGS10",
@@ -189,7 +200,7 @@ window.DASHBOARD_DATA = {
     liquidity: {
       title: "流动性 Liquidity",
       metrics: ["DR007 1.49%（2月）", "DXY 97.84（美元创近期新低）", "FOMC维持利率，措辞偏鸽"],
-      note: "本周流动性信号是四个支柱里最正面的——FOMC鸽派、DXY走弱、中国宽松持续三重利好。美债收益率从4.33%回落至约4.25%，全球流动性环境边际改善明显。",
+      note: "本周流动性信号是四个支柱里最正面的——FOMC鸽派、DXY走弱、中国宽松持续三重利好。美债10Y收益率4.41%（TIPS实际利率1.96%），全球流动性环境边际改善明显。",
     },
     risk: {
       title: "风险偏好 Risk",
@@ -237,8 +248,8 @@ window.DASHBOARD_DATA = {
       label: "核心 PCE 同比",
       value: "约 3.1%（1月）；⚠️ 5月12日美国4月CPI是本周关键验证",
     },
-    { label: "10Y 名义利率 DGS10", value: "约 4.25%（FOMC后小幅下行，请查FRED最新）" },
-    { label: "10Y TIPS（实际利率）", value: "约 1.9%（FRED: DFII10）" },
+    { label: "10Y 名义利率 DGS10", value: "4.41%（FRED: DGS10，5月8日）" },
+    { label: "10Y TIPS（实际利率）", value: "1.96%（FRED: DFII10，5月8日）" },
     { label: "标普500 SPX", value: "7,399（本周+2.3%，创新高；YTD +7.9%）" },
     {
       label: "纳斯达克 IXIC / NDX",
