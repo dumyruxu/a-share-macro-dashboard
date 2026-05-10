@@ -185,8 +185,8 @@
 
 <!-- HEADER -->
 <div class="header">
-  <h1>A股宏观看板</h1>
-  <div class="subtitle">数据截止：2026年5月8日 ｜ 周更（第19周） ｜ 下次更新：5月17日</div>
+  <h1 id="header-title">A股宏观看板</h1>
+  <div class="subtitle" id="header-subtitle">数据截止：2026年5月8日 ｜ 周更（第19周） ｜ 下次更新：5月17日</div>
 </div>
 
 <!-- ALERT BANNER -->
@@ -196,7 +196,7 @@
 </div>
 
 <!-- SUMMARY BAR -->
-<div class="summary-bar">
+<div class="summary-bar" id="summary-bar">
   <div class="summary-card yellow">
     <div class="label">本期市场主线</div>
     <div class="value">FOMC鸽派·美股大涨：纳指100单周+5.5%，SPX 7,399新高；布伦特$101（从$108回落）；本周三CPI是下一个关键考验</div>
@@ -233,111 +233,8 @@
 <!-- ==================== TAB: CHINA ==================== -->
 <div id="tab-china" class="tab-content active">
   <div class="section">
-    <div class="section-title">中国核心指标卡 <span class="badge">14项</span></div>
-    <div class="kpi-grid">
-      <!-- Growth -->
-      <div class="kpi-card"><span class="signal green"></span>
-        <div class="kpi-dim">增长</div>
-        <div class="kpi-name">NBS官方制造业PMI</div>
-        <div class="kpi-value">50.3</div>
-        <div class="kpi-change">↓0.1（前值50.4）· 关税冲击下制造业维持扩张，韧性超预期</div>
-        <div class="kpi-meta">2026-04-30 · 国家统计局</div>
-      </div>
-      <div class="kpi-card"><span class="signal green"></span>
-        <div class="kpi-dim">增长</div>
-        <div class="kpi-name">财新制造业PMI</div>
-        <div class="kpi-value">52.2</div>
-        <div class="kpi-change">↑1.4（前值50.8）· 中小民企景气度明显强于大型国企</div>
-        <div class="kpi-meta">2026-04-29 · 财新/Markit</div>
-      </div>
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">增长</div>
-        <div class="kpi-name">工业增加值 YoY</div>
-        <div class="kpi-value">待核对</div>
-        <div class="kpi-change">3月数据 4/17已发布 · 请查国家统计局官网</div>
-        <div class="kpi-meta">2026-03 · 国家统计局</div>
-      </div>
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">增长</div>
-        <div class="kpi-name">社零 YoY</div>
-        <div class="kpi-value">待核对</div>
-        <div class="kpi-change">3月数据 4/17已发布 · 请查国家统计局官网</div>
-        <div class="kpi-meta">2026-03 · 国家统计局</div>
-      </div>
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">增长</div>
-        <div class="kpi-name">出口 YoY（美元计）</div>
-        <div class="kpi-value">待核对</div>
-        <div class="kpi-change">3月数据已发布（前值+21.8%）· 关税前抢出口效应</div>
-        <div class="kpi-meta">2026-03 · 海关总署</div>
-      </div>
-      <div class="kpi-card"><span class="signal red"></span>
-        <div class="kpi-dim">增长</div>
-        <div class="kpi-name">地产开发投资 YoY</div>
-        <div class="kpi-value">待核对</div>
-        <div class="kpi-change">Q1数据 4/17已发布（前值Q1 -11.1%）</div>
-        <div class="kpi-meta">2026-Q1 · 国家统计局</div>
-      </div>
-      <!-- Inflation -->
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">通胀</div>
-        <div class="kpi-name">CPI YoY</div>
-        <div class="kpi-value">+1.0%</div>
-        <div class="kpi-change">↓0.3ppt（前值+1.3%）· 核心CPI +1.1% · 节后季节性回落</div>
-        <div class="kpi-meta">2026-03 · 国家统计局</div>
-      </div>
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">通胀</div>
-        <div class="kpi-name">PPI YoY</div>
-        <div class="kpi-value" style="color:var(--green)">+0.5%</div>
-        <div class="kpi-change">结束41个月通缩转正（前值-0.9%）· 油价回落或压制4月读数</div>
-        <div class="kpi-meta">2026-03 · 国家统计局</div>
-      </div>
-      <!-- Liquidity -->
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">流动性</div>
-        <div class="kpi-name">社融新增</div>
-        <div class="kpi-value">待核对</div>
-        <div class="kpi-change">3月社融已发布（前值2月2.38万亿）· 信贷拐点关键观察</div>
-        <div class="kpi-meta">2026-03 · 央行</div>
-      </div>
-      <div class="kpi-card"><span class="signal red"></span>
-        <div class="kpi-dim">流动性</div>
-        <div class="kpi-name">贷款余额增速 YoY</div>
-        <div class="kpi-value" style="color:var(--red)">+6.0%</div>
-        <div class="kpi-change">二十年新低（2月）· 信贷传导不畅 · 降准预期升温</div>
-        <div class="kpi-meta">2026-02 · 央行</div>
-      </div>
-      <div class="kpi-card"><span class="signal green"></span>
-        <div class="kpi-dim">流动性</div>
-        <div class="kpi-name">DR007</div>
-        <div class="kpi-value">1.44%</div>
-        <div class="kpi-change">月加权均值（3月）· 环比降5bp · 资金面持续宽松</div>
-        <div class="kpi-meta">2026-03 · CFETS/央行</div>
-      </div>
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">流动性</div>
-        <div class="kpi-name">10Y国债收益率</div>
-        <div class="kpi-value">1.769%</div>
-        <div class="kpi-change">低位震荡 · 宽松预期持续支撑 · 债市需求旺盛</div>
-        <div class="kpi-meta">2026-05-08 · 中债</div>
-      </div>
-      <!-- FX -->
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">汇率</div>
-        <div class="kpi-name">USD/CNY</div>
-        <div class="kpi-value">~7.22</div>
-        <div class="kpi-change">从6.83贬值（W15停火利好消退 + 关税战压力）· PBOC管控贬值节奏</div>
-        <div class="kpi-meta">2026-04-18 · CFETS</div>
-      </div>
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">汇率</div>
-        <div class="kpi-name">CFETS人民币指数</div>
-        <div class="kpi-value">~98.5</div>
-        <div class="kpi-change">小幅走弱（前值100.87）· 美元指数同步走弱缓冲贬值压力</div>
-        <div class="kpi-meta">2026-04-18 · CFETS</div>
-      </div>
-    </div>
+    <div class="section-title">中国核心指标卡 <span class="badge" id="china-kpi-badge">指标</span></div>
+    <div id="china-kpi-grid" class="kpi-grid"></div>
   </div>
 
   <div class="chart-row">
@@ -355,93 +252,8 @@
 <!-- ==================== TAB: US ==================== -->
 <div id="tab-us" class="tab-content">
   <div class="section">
-    <div class="section-title">美国核心指标卡 <span class="badge">12项</span></div>
-    <div class="kpi-grid">
-      <div class="kpi-card"><span class="signal green"></span>
-        <div class="kpi-dim">增长</div>
-        <div class="kpi-name">非农就业</div>
-        <div class="kpi-value">+178K</div>
-        <div class="kpi-change">↑（前值-133K，预期60K）· 失业率4.3% · 关税冲击尚未传导</div>
-        <div class="kpi-meta">2026-03 · BLS</div>
-      </div>
-      <div class="kpi-card"><span class="signal green"></span>
-        <div class="kpi-dim">增长</div>
-        <div class="kpi-name">ISM制造业PMI</div>
-        <div class="kpi-value">52.7</div>
-        <div class="kpi-change">↑0.3 · 连续3月扩张 · 4月数据或因关税走弱</div>
-        <div class="kpi-meta">2026-03 · ISM</div>
-      </div>
-      <div class="kpi-card"><span class="signal green"></span>
-        <div class="kpi-dim">增长</div>
-        <div class="kpi-name">ISM服务业PMI</div>
-        <div class="kpi-value">54.0</div>
-        <div class="kpi-change">连续21月扩张 · 新订单60.6 · 暂未受关税直接冲击</div>
-        <div class="kpi-meta">2026-03 · ISM</div>
-      </div>
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">增长</div>
-        <div class="kpi-name">零售销售 MoM</div>
-        <div class="kpi-value">待核对</div>
-        <div class="kpi-change">3月数据 ~4/16发布（前值+0.6%）· 关税前消费者抢购效应？</div>
-        <div class="kpi-meta">2026-03 · Census</div>
-      </div>
-      <div class="kpi-card"><span class="signal red"></span>
-        <div class="kpi-dim">通胀</div>
-        <div class="kpi-name">CPI YoY</div>
-        <div class="kpi-value" style="color:var(--red)">3.3%</div>
-        <div class="kpi-change">↑↑ 2024年5月以来最高（前值2.4%）· 油价回落或压制4月</div>
-        <div class="kpi-meta">2026-03 · BLS</div>
-      </div>
-      <div class="kpi-card"><span class="signal red"></span>
-        <div class="kpi-dim">通胀</div>
-        <div class="kpi-name">核心PCE YoY</div>
-        <div class="kpi-value" style="color:var(--red)">3.0%</div>
-        <div class="kpi-change">↓0.1 · MoM +0.4%（粘性强）· Fed最关注指标</div>
-        <div class="kpi-meta">2026-02 · BEA</div>
-      </div>
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">利率</div>
-        <div class="kpi-name">联邦基金利率</div>
-        <div class="kpi-value">3.50–3.75%</div>
-        <div class="kpi-change">连续2次维持 · 关税通胀 vs 增长下行 · 降息路径不确定</div>
-        <div class="kpi-meta">2026-03 · Fed</div>
-      </div>
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">利率</div>
-        <div class="kpi-name">10Y Treasury</div>
-        <div class="kpi-value">4.33%</div>
-        <div class="kpi-change">本周异常波动：避险→急升至4.6%→回落 · 外国减持疑虑</div>
-        <div class="kpi-meta">2026-04-17 · Treasury/FRED</div>
-      </div>
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">利率</div>
-        <div class="kpi-name">10Y TIPS 实际利率</div>
-        <div class="kpi-value">2.0%</div>
-        <div class="kpi-change">仍高位 · 实际利率压制全球成长股估值</div>
-        <div class="kpi-meta">2026-04-17 · FRED DFII10</div>
-      </div>
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">美元</div>
-        <div class="kpi-name">DXY 美元指数</div>
-        <div class="kpi-value">99.3</div>
-        <div class="kpi-change">↓ 跌破100关口 · 美国增长担忧 + 资产多元化趋势</div>
-        <div class="kpi-meta">2026-04-18 · ICE</div>
-      </div>
-      <div class="kpi-card"><span class="signal red"></span>
-        <div class="kpi-dim">风险偏好</div>
-        <div class="kpi-name">VIX</div>
-        <div class="kpi-value" style="color:var(--red)">~31</div>
-        <div class="kpi-change">4/7曾触及52（近年最高）· 企稳但远高于20的"正常"水平</div>
-        <div class="kpi-meta">2026-04-18 · CBOE/FRED</div>
-      </div>
-      <div class="kpi-card"><span class="signal yellow"></span>
-        <div class="kpi-dim">信用</div>
-        <div class="kpi-name">HY信用利差</div>
-        <div class="kpi-value">~420bp</div>
-        <div class="kpi-change">↑ 较W15(294bp)大幅走阔 · 关税衰退担忧推升违约溢价</div>
-        <div class="kpi-meta">2026-04-17 · FRED BAMLH0A0HYM2</div>
-      </div>
-    </div>
+    <div class="section-title">美国核心指标卡 <span class="badge" id="us-kpi-badge">指标</span></div>
+    <div id="us-kpi-grid" class="kpi-grid"></div>
   </div>
 
   <div class="us-row" style="margin-top:16px;">
@@ -553,33 +365,7 @@
 
   <div class="section">
     <div class="section-title">资金面一览</div>
-    <div class="flow-grid">
-      <div class="flow-card">
-        <div class="flow-label">南向资金（5/8）</div>
-        <div class="flow-value" style="color:var(--green);">131.7亿</div>
-        <div class="flow-trend">沪股通30.4亿+深股通101.3亿<br>内地资金持续流入港股</div>
-      </div>
-      <div class="flow-card">
-        <div class="flow-label">融资融券余额</div>
-        <div class="flow-value" style="color:var(--green);">2.79万亿</div>
-        <div class="flow-trend">↑ FOMC鸽派后杠杆资金回流<br>市场情绪明显改善</div>
-      </div>
-      <div class="flow-card">
-        <div class="flow-label">ETF资金</div>
-        <div class="flow-value" style="color:var(--green);">净申购</div>
-        <div class="flow-trend">国家队宽基ETF托底<br>沪深300/CSI A500主力</div>
-      </div>
-      <div class="flow-card">
-        <div class="flow-label">全A成交（5/7）</div>
-        <div class="flow-value" style="color:var(--green);">3.14万亿</div>
-        <div class="flow-trend">FOMC决议日大幅放量<br>沪市1.36万亿+深市1.78万亿</div>
-      </div>
-      <div class="flow-card">
-        <div class="flow-label">主力动向</div>
-        <div class="flow-value" style="color:var(--yellow);">防御切换</div>
-        <div class="flow-trend">撤离出口链/港股<br>→内需/黄金/军工</div>
-      </div>
-    </div>
+    <div id="flow-grid" class="flow-grid"></div>
   </div>
 
   <div class="section">
@@ -611,36 +397,7 @@
 <div id="tab-framework" class="tab-content">
   <div class="section">
     <div class="section-title">宏观四象限框架</div>
-    <div class="quadrant-grid">
-      <div class="quadrant">
-        <h3><span class="q-signal" style="background:var(--yellow);"></span> 增长 Growth</h3>
-        <div class="indicators">NBS PMI 50.3 · 财新 52.2 · 双双扩张，增长信号双重确认 · 新出口订单关注关税传导</div>
-        <div class="explanation">
-          官方PMI 50.3% + 财新PMI 52.2% 双双高于荣枯线，增长信号双重确认，积极。关税冲击下制造业韧性超预期。重点关注新出口订单分项是否跌破49——那是关税影响出口的直接验证。内需导向板块（消费、基建、军工）是当前A股结构行情的逻辑底座。
-        </div>
-      </div>
-      <div class="quadrant">
-        <h3><span class="q-signal" style="background:var(--yellow);"></span> 通胀 Inflation</h3>
-        <div class="indicators">中国CPI +1.0% · PPI +0.5%（转正）· 美国CPI 3.3% · 核心PCE 3.0% · 布伦特 ~$65</div>
-        <div class="explanation">
-          中国PPI刚刚结束41个月通缩转正，但原油受双重压力（关税→需求下行 + 美伊停火谈判→供给预期恢复）跌至~$65，4月PPI能否守住正区间存在不确定性。美国通胀被关税和油价冲击抬高至3.3%，但停火带来的油价回落是4月CPI的潜在缓和因素。
-        </div>
-      </div>
-      <div class="quadrant">
-        <h3><span class="q-signal" style="background:var(--green);"></span> 流动性 Liquidity</h3>
-        <div class="indicators">DR007 1.44%（3月）· 中国10Y 1.769% · Fed 3.50-3.75%（维持）· 美国10Y 4.41% · TIPS 1.96%</div>
-        <div class="explanation">
-          本周流动性信号是四个支柱里最正面的——FOMC鸽派、DXY 97.84走弱、中国宽松持续三重利好。DR007继续下行至1.44%，中债10Y低位1.769%，资金面宽松明确。美债10Y 4.41%偏高但在可控范围，DXY走弱对全球风险资产有正面支撑。
-        </div>
-      </div>
-      <div class="quadrant">
-        <h3><span class="q-signal" style="background:var(--red);"></span> 风险偏好 Risk Appetite</h3>
-        <div class="indicators">VIX 17.19（平稳）· 布伦特$101（从$108回落）· 黄金$4,731 · 南向131.7亿 · 全A 3.14万亿</div>
-        <div class="explanation">
-          FOMC后风险偏好明显改善，纳指100单周+5.5%是强烈risk-on信号。布伦特从$108回落至$101，油价压力阶段性缓解。黄金$4,731仍处历史高位，说明长期结构性不确定性未消。全A成交3.14万亿大幅放量，市场情绪活跃。本周三5月12日CPI是情绪能否持续的关键测试。
-        </div>
-      </div>
-    </div>
+    <div id="framework-grid" class="quadrant-grid"></div>
   </div>
 
   <div class="section" style="margin-top:24px;">
@@ -699,127 +456,15 @@
 <div id="tab-scenarios" class="tab-content">
   <div class="section">
     <div class="section-title">三情景推演</div>
-    <div class="scenario-grid">
-      <div class="scenario base">
-        <h3 style="color:var(--yellow);">基准情景</h3>
-        <div class="prob" style="color:var(--yellow);">45%</div>
-        <div class="detail">
-          <strong>假设：</strong>关税战僵局持续（无重大突破），4月PMI温和走弱但不崩塌；美伊停火维持谈判进行；Fed 5月维持不变<br><br>
-          <strong>验证指标：</strong>4月30日PMI（新出口订单），5月6-7日FOMC措辞，VIX维持20以下，Brent在$90–$105区间<br><br>
-          <strong>对A股：</strong><span style="color:var(--yellow);">区间震荡</span>，内需/政策板块领跑，上证在3,900–4,200区间<br><br>
-          <strong>对美股：</strong><span style="color:var(--yellow);">高位震荡整理</span>，S&P 500 7,000–7,400
-        </div>
-      </div>
-      <div class="scenario bull">
-        <h3 style="color:var(--green);">乐观情景</h3>
-        <div class="prob" style="color:var(--green);">30%</div>
-        <div class="detail">
-          <strong>假设：</strong>中美关税出现阶段性降级信号（部分豁免或官方接触）；美伊停火正式达成；Fed 5月措辞偏鸽<br><br>
-          <strong>验证指标：</strong>USTR/商务部官方声明、PBOC降准公告、联邦基金期货降息预期前移<br><br>
-          <strong>对A股：</strong><span style="color:var(--green);">宽基指数显著上行</span>，北向回流，出口链弹性最大<br>上证冲击4,400+<br><br>
-          <strong>对美股：</strong><span style="color:var(--green);">继续冲高</span>，S&P 500 7,600+
-        </div>
-      </div>
-      <div class="scenario bear">
-        <h3 style="color:var(--red);">悲观情景</h3>
-        <div class="prob" style="color:var(--red);">25%</div>
-        <div class="detail">
-          <strong>假设：</strong>4月PMI新出口订单大幅跌破49；美伊停火破裂，油价重返$110+；美联储陷入滞胀两难<br><br>
-          <strong>验证指标：</strong>Brent>$110、VIX重回35+、美国10Y>4.8%、PMI连续跌破49<br><br>
-          <strong>对A股：</strong><span style="color:var(--red);">承压回调</span>，外资撤离+人民币承压<br>上证回测3,700–3,900<br><br>
-          <strong>对美股：</strong><span style="color:var(--red);">再次大幅下跌</span>，S&P 500 回探6,500–6,800
-        </div>
-      </div>
-    </div>
+    <div id="scenario-grid" class="scenario-grid"></div>
   </div>
 </div>
 
 <!-- ==================== TAB: WATCHLIST ==================== -->
 <div id="tab-watchlist" class="tab-content">
   <div class="section">
-    <div class="section-title">触发器清单 <span class="badge">16项</span></div>
-    <div class="watchlist">
-      <div class="watch-item priority">
-        <div class="watch-trigger">🔴 1. 中美关税谈判突破</div>
-        <div class="watch-cond">条件：任何官方层面接触或关税豁免公告</div>
-        <div class="watch-action">→ 关键反转触发器：出口链、港股弹性最大 · 商务部/USTR官网</div>
-      </div>
-      <div class="watch-item priority">
-        <div class="watch-trigger">🔴 2. 美伊停火破裂</div>
-        <div class="watch-cond">条件：冲突重新升级，霍尔木兹海峡受威胁</div>
-        <div class="watch-action">→ 油价急涨→PPI↑→Fed两难加剧；关注能源股、黄金、航运 · 国际新闻</div>
-      </div>
-      <div class="watch-item">
-        <div class="watch-trigger">3. 4月制造业PMI（4/30）</div>
-        <div class="watch-cond">条件：PMI <49，尤其新出口订单分项</div>
-        <div class="watch-action">→ 关税冲击传导至生产端确认；下调周期弹性 · 国家统计局</div>
-      </div>
-      <div class="watch-item">
-        <div class="watch-trigger">4. 美债收益率再次异常上升</div>
-        <div class="watch-cond">条件：10Y美债一周内再升 >20bp</div>
-        <div class="watch-action">→ 外国减持美债趋势确认，美元信用风险；黄金/人民币联动 · FRED DGS10</div>
-      </div>
-      <div class="watch-item">
-        <div class="watch-trigger">5. VIX 持续高位</div>
-        <div class="watch-cond">条件：VIX >30 维持 5 个交易日</div>
-        <div class="watch-action">→ 风险偏好未修复，关注北向持续流出 · FRED VIXCLS</div>
-      </div>
-      <div class="watch-item">
-        <div class="watch-trigger">6. 央行降准落地</div>
-        <div class="watch-cond">条件：PBOC宣布降准25bp+</div>
-        <div class="watch-action">→ 流动性宽松兑现，债市受益；信用扩张预期提振成长 · 人民银行</div>
-      </div>
-      <div class="watch-item">
-        <div class="watch-trigger">7. 北向资金持续流出</div>
-        <div class="watch-cond">条件：5日累计净流出超历史高分位</div>
-        <div class="watch-action">→ 外资重仓与核心资产定价压力 · 东方财富沪深港通</div>
-      </div>
-      <div class="watch-item">
-        <div class="watch-trigger">8. 美国5月CPI（5/12）</div>
-        <div class="watch-cond">条件：环比 >0.4%（关税传导）</div>
-        <div class="watch-action">→ 关税通胀落地，Fed更难转松；压制成长股 · BLS</div>
-      </div>
-      <div class="watch-item">
-        <div class="watch-trigger">9. Fed FOMC 5月会议（5/6-7）</div>
-        <div class="watch-cond">条件：声明措辞变化（鹰/鸽）</div>
-        <div class="watch-action">→ 全球利率路径重定价 · Fed.gov</div>
-      </div>
-      <div class="watch-item">
-        <div class="watch-trigger">10. PPI 二次转负</div>
-        <div class="watch-cond">条件：4月PPI同比重回负区间</div>
-        <div class="watch-action">→ 再通胀逻辑证伪，中上游利润预期下修 · 统计局（5月中）</div>
-      </div>
-      <div class="watch-item">
-        <div class="watch-trigger">11. 全A成交持续萎缩</div>
-        <div class="watch-cond">条件：连续5天 <1.2万亿</div>
-        <div class="watch-action">→ 流动性枯竭预警，调整风险上升 · 交易所</div>
-      </div>
-      <div class="watch-item">
-        <div class="watch-trigger">12. 汇率突破区间</div>
-        <div class="watch-cond">条件：USD/CNY 突破7.35</div>
-        <div class="watch-action">→ 资本流出压力与外债成本上升 · 外汇交易中心</div>
-      </div>
-      <div class="watch-item">
-        <div class="watch-trigger">13. 社融低于预期</div>
-        <div class="watch-cond">条件：4月社融增量大幅低于一致预期</div>
-        <div class="watch-action">→ 政策对冲力度不够，调整成长/周期仓位 · 央行（5月中）</div>
-      </div>
-      <div class="watch-item">
-        <div class="watch-trigger">14. 黄金大幅回调</div>
-        <div class="watch-cond">条件：XAU 一周跌超5%</div>
-        <div class="watch-action">→ 风险偏好意外好转或美元信用担忧缓解的反向信号 · 期货市场</div>
-      </div>
-      <div class="watch-item">
-        <div class="watch-trigger">15. 美联储紧急表态</div>
-        <div class="watch-cond">条件：鲍威尔讲话暗示提前降息</div>
-        <div class="watch-action">→ 美元快速走弱，全球风险偏好修复 · Fed.gov</div>
-      </div>
-      <div class="watch-item">
-        <div class="watch-trigger">16. 中国PPI连续正增长</div>
-        <div class="watch-cond">条件：4月PPI同比继续 >0%</div>
-        <div class="watch-action">→ 再通胀交易逻辑巩固，中上游利润预期上修 · 统计局</div>
-      </div>
-    </div>
+    <div class="section-title">触发器清单 <span class="badge" id="watchlist-badge">项</span></div>
+    <div id="watchlist-grid" class="watchlist"></div>
   </div>
 </div>
 
@@ -1238,7 +883,115 @@
   <span style="margin-top:4px;display:inline-block;">实时更新模式：<code style="background:var(--card);padding:2px 6px;border-radius:4px;">python backend/server.py --auto-refresh 30</code> 后访问 http://127.0.0.1:8080</span>
 </div>
 
+<script src="js/data.js"></script>
 <script>
+// ─── renderDashboard: populate all dynamic containers from window.DASHBOARD_DATA ───
+function renderDashboard() {
+  const D = window.DASHBOARD_DATA;
+  if (!D) return;
+
+  // Helper: build a kpi-card HTML string from a kpi data object
+  function kpiCard(k) {
+    return `<div class="kpi-card">
+  <span class="signal ${k.signal}"></span>
+  <div class="kpi-dim">${k.dim}</div>
+  <div class="kpi-name">${k.name}</div>
+  <div class="kpi-value">${k.value}</div>
+  <div class="kpi-change">${k.delta}</div>
+  <div class="kpi-meta">${k.updatedAt} · <a href="${k.source}" target="_blank" style="color:var(--blue);text-decoration:none;">${k.sourceLabel}</a></div>
+</div>`;
+  }
+
+  // Helper: bar color by percentile
+  function barColor(bar) {
+    if (bar >= 65) return 'var(--green)';
+    if (bar >= 45) return 'var(--yellow)';
+    return 'var(--red)';
+  }
+
+  // ── Header ──
+  const metaTitle = document.getElementById('header-title');
+  const metaSubtitle = document.getElementById('header-subtitle');
+  if (metaTitle && D.meta) metaTitle.textContent = D.meta.title;
+  if (metaSubtitle && D.meta) {
+    metaSubtitle.textContent = `数据截止：${D.meta.dataAsOf} ｜ ${D.meta.frequency}（${D.meta.periodLabel}） ｜ 下次更新：${D.meta.nextUpdateDue}`;
+  }
+
+  // ── China KPI grid ──
+  const chinaGrid = document.getElementById('china-kpi-grid');
+  const chinaBadge = document.getElementById('china-kpi-badge');
+  if (chinaGrid && D.kpis) {
+    // Filter out dim === "海外" (those go in usKpis now)
+    const chinaKpis = D.kpis.filter(k => k.dim !== '海外');
+    chinaGrid.innerHTML = chinaKpis.map(kpiCard).join('');
+    if (chinaBadge) chinaBadge.textContent = chinaKpis.length + '项';
+  }
+
+  // ── US KPI grid ──
+  const usGrid = document.getElementById('us-kpi-grid');
+  const usBadge = document.getElementById('us-kpi-badge');
+  if (usGrid && D.usKpis) {
+    usGrid.innerHTML = D.usKpis.map(kpiCard).join('');
+    if (usBadge) usBadge.textContent = D.usKpis.length + '项';
+  }
+
+  // ── Flow grid ──
+  const flowGrid = document.getElementById('flow-grid');
+  if (flowGrid && D.aShare && D.aShare.flows) {
+    flowGrid.innerHTML = D.aShare.flows.map(f => `<div class="flow-card">
+  <div class="flow-label">${f.label}</div>
+  <div class="flow-value" style="color:${barColor(f.bar)};">${f.valueText}</div>
+  <div class="flow-trend">分位: ${f.bar}%</div>
+</div>`).join('');
+  }
+
+  // ── Framework quadrant grid ──
+  const fwGrid = document.getElementById('framework-grid');
+  if (fwGrid && D.framework) {
+    const pillars = [
+      { key: 'growth',    signalColor: 'var(--yellow)' },
+      { key: 'inflation', signalColor: 'var(--yellow)' },
+      { key: 'liquidity', signalColor: 'var(--green)'  },
+      { key: 'risk',      signalColor: 'var(--yellow)' },
+    ];
+    fwGrid.innerHTML = pillars.map(p => {
+      const q = D.framework[p.key];
+      if (!q) return '';
+      return `<div class="quadrant">
+  <h3><span class="q-signal" style="background:${p.signalColor};"></span> ${q.title}</h3>
+  <div class="indicators">${q.metrics.join(' · ')}</div>
+  <div class="explanation">${q.note}</div>
+</div>`;
+    }).join('');
+  }
+
+  // ── Scenarios ──
+  const scenarioGrid = document.getElementById('scenario-grid');
+  if (scenarioGrid && D.scenarios) {
+    const typeMap = { '基准': { cls: 'base', color: 'var(--yellow)' }, '乐观': { cls: 'bull', color: 'var(--green)' }, '悲观': { cls: 'bear', color: 'var(--red)' } };
+    scenarioGrid.innerHTML = D.scenarios.map(s => {
+      const t = typeMap[s.name] || { cls: 'base', color: 'var(--yellow)' };
+      return `<div class="scenario ${t.cls}">
+  <h3 style="color:${t.color};">${s.name}</h3>
+  <div class="prob" style="color:${t.color};">${s.probability}</div>
+  <div class="detail">${s.text}</div>
+</div>`;
+    }).join('');
+  }
+
+  // ── Watchlist ──
+  const watchlistGrid = document.getElementById('watchlist-grid');
+  const watchlistBadge = document.getElementById('watchlist-badge');
+  if (watchlistGrid && D.watchlist) {
+    watchlistGrid.innerHTML = D.watchlist.map(w => `<div class="watch-item">
+  <div class="watch-trigger">${w.title}</div>
+  <div class="watch-cond">${w.condition}</div>
+  <div class="watch-action">→ ${w.action} · ${w.source}</div>
+</div>`).join('');
+    if (watchlistBadge) watchlistBadge.textContent = D.watchlist.length + '项';
+  }
+}
+
 function switchTab(name, el) {
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -1328,7 +1081,10 @@ function renderCharts() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', renderCharts);
+document.addEventListener('DOMContentLoaded', function() {
+  renderDashboard();
+  renderCharts();
+});
 </script>
 </body>
 </html>
