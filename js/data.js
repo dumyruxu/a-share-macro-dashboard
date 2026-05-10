@@ -78,24 +78,24 @@ window.DASHBOARD_DATA = {
     {
       dim: "流动性",
       name: "DR007（月加权）",
-      value: "1.49%（2月）",
+      value: "1.44%（3月）",
       delta:
-        "3月数据待央行更新；央行宽松立场明确，市场预期年内仍有降准空间。",
+        "2026年3月月度加权均值1.44%，较2月1.49%环比下行5个基点（5bp）；央行持续宽松立场明确，资金面宽松对A股成长类估值正面。",
       signal: "green",
-      updatedAt: "2026-02 月报",
+      updatedAt: "2026-03",
       source: "https://www.pbc.gov.cn",
       sourceLabel: "人民银行·市场运行",
     },
     {
       dim: "流动性",
       name: "10Y 国债收益率（中债）",
-      value: "约 1.80%",
+      value: "1.769%",
       delta:
-        "低位震荡；宽松预期支撑。具体读数请查中国货币网。",
-      signal: "yellow",
+        "较前期约1.80%继续小幅下行，债市需求旺盛，市场押注央行维持宽松；低收益率环境对A股成长类估值正面。",
+      signal: "green",
       updatedAt: "2026-05-08",
-      source: "https://www.chinamoney.com.cn",
-      sourceLabel: "中国货币网",
+      source: "https://cn.investing.com/rates-bonds/china-10-year-bond-yield",
+      sourceLabel: "Investing.com·中债10Y",
     },
     {
       dim: "汇率",
@@ -122,22 +122,22 @@ window.DASHBOARD_DATA = {
     {
       dim: "市场",
       name: "全A成交额",
-      value: "请手填",
+      value: "3.14 万亿元",
       delta:
-        "请查东财首页或行情页面，填入本周日均或周合计成交额（亿元）。成交额放量=市场活跃；缩量=观望。",
-      signal: "yellow",
-      updatedAt: "周收盘后",
-      source: "https://data.eastmoney.com",
-      sourceLabel: "东方财富·行情中心",
+        "5月7日沪深两市合计成交3.14万亿元（沪市1.36万亿+深市1.78万亿），较前一交易日缩量约829亿；FOMC决议日成交明显放量，市场情绪活跃，属近期高位水平。",
+      signal: "green",
+      updatedAt: "2026-05-07",
+      source: "https://data.eastmoney.com/zjlx/detail.html",
+      sourceLabel: "东方财富·资金流向",
     },
     {
       dim: "市场",
-      name: "融资余额",
-      value: "13,157 亿元",
+      name: "融资融券余额",
+      value: "2.79 万亿元",
       delta:
-        "截至4月10日；FOMC鸽派后市场情绪改善，融资余额或有所回升。最新数据请查东财数据中心。",
-      signal: "yellow",
-      updatedAt: "2026-04-10",
+        "融资（借钱买股）+融券（借股做空）合计余额；余额走高说明市场杠杆资金活跃，投资者信心改善。",
+      signal: "green",
+      updatedAt: "2026-05-08",
       source: "https://data.eastmoney.com/rzrq/total.html",
       sourceLabel: "东方财富·两融",
     },
@@ -189,8 +189,8 @@ window.DASHBOARD_DATA = {
   framework: {
     growth: {
       title: "增长 Growth",
-      metrics: ["⚠️ 4月PMI待填入（已发布4/30）", "财新PMI待填入", "A股YTD +3.9%，上证站稳4,100+"],
-      note: "4月PMI是当前增长维度最重要的待确认数据。填入后信号将更新。从市场表现看，A股温和上涨，市场对增长预期尚可，但关税影响的完整验证仍需数据支撑。",
+      metrics: ["官方PMI 50.3%（4月，双重确认扩张）", "财新PMI 52.2%（4月，中小民企强劲）", "A股上证 4,180（本周+1.6%）"],
+      note: "官方PMI 50.3% + 财新PMI 52.2% 双双高于荣枯线，增长信号双重确认，积极。关税冲击下制造业韧性超预期。重点关注新出口订单分项是否跌破49，那是关税影响出口的直接信号。",
     },
     inflation: {
       title: "通胀 Inflation",
@@ -199,7 +199,7 @@ window.DASHBOARD_DATA = {
     },
     liquidity: {
       title: "流动性 Liquidity",
-      metrics: ["DR007 1.49%（2月）", "DXY 97.84（美元创近期新低）", "FOMC维持利率，措辞偏鸽"],
+      metrics: ["DR007 1.44%（3月，持续下行）", "DXY 97.84（美元创近期新低）", "FOMC维持利率，措辞偏鸽"],
       note: "本周流动性信号是四个支柱里最正面的——FOMC鸽派、DXY走弱、中国宽松持续三重利好。美债10Y收益率4.41%（TIPS实际利率1.96%），全球流动性环境边际改善明显。",
     },
     risk: {
@@ -221,9 +221,9 @@ window.DASHBOARD_DATA = {
     ],
     flows: [
       {
-        label: "北向净流入（周）",
-        valueText: "手动查东财后填入",
-        bar: 40,
+        label: "南向净买入（5/8）",
+        valueText: "131.7亿元（沪股通30.4亿+深股通101.3亿）",
+        bar: 65,
       },
       {
         label: "融资余额",
