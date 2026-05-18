@@ -9,9 +9,12 @@ window.DASHBOARD_DATA = {
   meta: {
     title: "A股宏观看板",
     periodLabel: "2026年第20周",
+    weekNumber: "W20",
+    weekThemeShort: "通胀回归·油价飙升",
     dataAsOf: "2026-05-15",
     nextUpdateDue: "2026-05-24",
     frequency: "周更",
+    alertBanner: "⚠️ 本周关键：美国4月CPI 3.8%超预期（关税通胀传导确认）；布伦特重回$109（伊朗/霍尔木兹局势再升温）；DGS10飙升至4.59%（+18bp）；特朗普-习近平峰会声势大实质少。SPX周中创7,517纪录后回落至7,408，A股-1.1%至4,135。",
     methodology: [
       "本周核心叙事：①美国4月CPI 3.8%超预期（前值3.3%），关税通胀传导确认——DGS10飙升至4.59%；②布伦特重回$109（伊朗/霍尔木兹海峡紧张再升温）；③特朗普-习近平北京峰会（5/14-15），声势大实质少，市场反应平淡；④SPX周内创纪录7,517后回落至7,408，A股回调至4,135。",
       "中国月频数据：4月CPI +1.2%、PPI +2.8%已发布（5/11），PPI大幅跳升受油价驱动。",
@@ -357,6 +360,12 @@ window.DASHBOARD_DATA = {
     },
   },
   aShare: {
+    indices: [
+      { name: "上证综指", value: "4,135.4", change: "-1.1%", direction: "down" },
+      { name: "深证成指", value: "15,220", change: "-2.2%", direction: "down" },
+      { name: "创业板指", value: "3,680", change: "-3.1%", direction: "down" },
+      { name: "沪深300", value: "4,810", change: "-1.3%", direction: "down" },
+    ],
     sectorsTop: [
       { name: "上游材料/能源", note: "PPI +2.8%跳升+布伦特$109，上游利润预期改善" },
       { name: "黄金/贵金属", note: "金价虽回落至$4,556，但地缘不确定性持续支撑" },
@@ -407,6 +416,30 @@ window.DASHBOARD_DATA = {
     { label: "布伦特原油 Brent", value: "$109.3/桶（↑+7.9%！伊朗/霍尔木兹海峡紧张再度升温）" },
     { label: "黄金 XAU/USD", value: "$4,556/盎司（-3.7%，DXY反弹+美债利率上行压制）" },
     { label: "DXY 美元指数", value: "99.27（↑+1.5%，CPI超预期驱动美元反弹）" },
+  ],
+  usMarketAssets: [
+    { name: "S&P 500", value: "7,408", wow: "持平", wowDir: "neutral", note: "周中创7,517纪录后回落" },
+    { name: "Nasdaq / NDX", value: "26,225 / 29,125", wow: "-0.4%", wowDir: "down", note: "DGS10上行压制成长股" },
+    { name: "Russell 2000", value: "~1,780", wow: "-1.5%", wowDir: "down", note: "小盘对利率更敏感" },
+    { name: "黄金 XAU/USD", value: "$4,556", wow: "-3.7%", wowDir: "down", note: "DXY反弹+美债利率上行" },
+    { name: "布伦特原油", value: "$109.3/桶", wow: "+7.9%", wowDir: "up", note: "伊朗/霍尔木兹紧张升温" },
+  ],
+  usContext: {
+    styleNote: "价值>成长（DGS10飙升压制成长股估值）· 能源强势（布伦特$109）· 黄金回落",
+    sectorNote: "能源+7.9%（油价驱动）· 公用事业+防御板块抗跌 · 科技/成长承压",
+    narrative: [
+      { title: "① 贸易战（主线）", text: "美国对华关税145% / 中国反制125%，格局未变。特朗普-习近平北京峰会（5/14-15）声势浩大但实质有限——波音订单、大豆采购属象征性让步，关税未降。市场反应平淡。" },
+      { title: "② 美伊/油价（升温）", text: "布伦特重回$109（+7.9%），霍尔木兹海峡局势再度紧张。油价飙升是本周通胀预期上行的核心推手。若突破$115→通胀螺旋风险。" },
+      { title: "③ 通胀回归", text: "4月CPI 3.8%超预期（前值3.3%），核心CPI 2.8%。DGS10飙升18bp至4.59%。市场定价年内不降息。" },
+      { title: "④ 美联储两难", text: "通胀上行（CPI 3.8%）vs增长下行压力。下次FOMC 6月，降息路径高度不确定。" },
+    ],
+  },
+  drivers: [
+    { rank: 1, name: "油价/伊朗局势", detail: "布伦特$109（+7.9%）<br><strong>阈值：</strong>$115+→通胀螺旋 / <$95→压力缓解<br><strong>影响：</strong>通胀预期、PPI、美联储路径" },
+    { rank: 2, name: "中美关税（峰会后续）", detail: "145%/125%未变，峰会实质有限<br><strong>阈值：</strong>实质降关税=反转催化<br><strong>影响：</strong>出口链、港股、全球供应链" },
+    { rank: 3, name: "DGS10/美债利率", detail: "4.59%（本周+18bp）<br><strong>阈值：</strong>>4.70%=成长股大幅承压<br><strong>影响：</strong>全球成长股估值、黄金、美元" },
+    { rank: 4, name: "美联储路径", detail: "CPI 3.8%后市场定价年内不降息<br><strong>阈值：</strong>6月FOMC措辞变化<br><strong>影响：</strong>全球利率锚与风险资产定价" },
+    { rank: 5, name: "中国政策对冲", detail: "PPI +2.8%或限制降息空间<br><strong>阈值：</strong>降准落地=流动性信号<br><strong>影响：</strong>A股内需链核心变量" },
   ],
   scenarios: [
     {

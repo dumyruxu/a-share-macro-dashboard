@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A股宏观看板 — 2026W20</title>
+<title id="page-title">A股宏观看板</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <style>
   :root {
@@ -186,37 +186,17 @@
 <!-- HEADER -->
 <div class="header">
   <h1 id="header-title">A股宏观看板</h1>
-  <div class="subtitle" id="header-subtitle">数据截止：2026年5月15日 ｜ 周更（第20周） ｜ 下次更新：5月24日</div>
+  <div class="subtitle" id="header-subtitle">加载中...</div>
 </div>
 
-<!-- ALERT BANNER -->
+<!-- ALERT BANNER (dynamic from data.js meta.alertBanner) -->
 <div class="alert-banner">
   <div class="alert-dot"></div>
-  <span><strong>⚠️ 本周关键：</strong>FOMC 5月6-7日维持利率不变，措辞偏鸽，美股大涨（纳指100单周+5.5%，SPX 7,399新高）；布伦特从$108回落至$101。<strong>本周三（5月12日）美国4月CPI发布</strong>——若关税通胀传导显现，本周涨幅可能回吐。</span>
+  <span id="alert-text"></span>
 </div>
 
-<!-- SUMMARY BAR -->
-<div class="summary-bar" id="summary-bar">
-  <div class="summary-card yellow">
-    <div class="label">本期市场主线</div>
-    <div class="value">FOMC鸽派·美股大涨：纳指100单周+5.5%，SPX 7,399新高；布伦特$101（从$108回落）；本周三CPI是下一个关键考验</div>
-  </div>
-  <div class="summary-card yellow">
-    <div class="label">风险偏好</div>
-    <div class="value" style="color:var(--green)">偏乐观</div>
-    <div style="font-size:12px;color:var(--text-dim);margin-top:4px;">FOMC鸽派后情绪改善 | CPI是情绪能否持续的关键</div>
-  </div>
-  <div class="summary-card yellow">
-    <div class="label">对 A 股</div>
-    <div class="value" style="color:var(--green)">温和跟涨</div>
-    <div style="font-size:12px;color:var(--text-dim);margin-top:4px;">上证 4,180（+1.6%）| 受美股FOMC行情带动</div>
-  </div>
-  <div class="summary-card yellow">
-    <div class="label">对美股</div>
-    <div class="value" style="color:var(--green)">大幅反弹</div>
-    <div style="font-size:12px;color:var(--text-dim);margin-top:4px;">SPX 7,399（+2.3%）| 纳指100 +5.5%单周</div>
-  </div>
-</div>
+<!-- SUMMARY BAR (dynamic from data.js summary) -->
+<div class="summary-bar" id="summary-bar"></div>
 
 <!-- TAB BAR -->
 <div class="tab-bar">
@@ -256,36 +236,19 @@
     <div id="us-kpi-grid" class="kpi-grid"></div>
   </div>
 
+  <!-- US market table + context (dynamic from data.js) -->
   <div class="us-row" style="margin-top:16px;">
     <div class="chart-box">
       <h3>美股与大宗商品</h3>
       <table class="data-table">
-        <thead><tr><th>资产</th><th>当前值</th><th>YTD</th><th>近一周</th><th>信号</th></tr></thead>
-        <tbody>
-          <tr><td>S&P 500</td><td>7,399</td><td class="up">+2.3% 本周</td><td class="up">FOMC鸽派驱动，新高</td><td><span class="signal yellow" style="display:inline-block;position:static;width:8px;height:8px;"></span></td></tr>
-          <tr><td>Nasdaq Composite</td><td>26,247</td><td class="up">+4.5% 本周</td><td class="up">NDX 29,235（+5.5%），强势领涨</td><td><span class="signal yellow" style="display:inline-block;position:static;width:8px;height:8px;"></span></td></tr>
-          <tr><td>Russell 2000</td><td>~1,780</td><td class="down">约-15%</td><td class="down">小盘更脆弱</td><td><span class="signal red" style="display:inline-block;position:static;width:8px;height:8px;"></span></td></tr>
-          <tr><td>黄金 XAU/USD</td><td>$4,615</td><td class="down">-2.7% 本周</td><td class="neutral">仍处历史高位，短期降温</td><td><span class="signal yellow" style="display:inline-block;position:static;width:8px;height:8px;"></span></td></tr>
-          <tr><td>布伦特原油</td><td>$101.3/桶</td><td class="down">-6.7% 本周</td><td class="neutral">从$108回落，局势暂缓</td><td><span class="signal yellow" style="display:inline-block;position:static;width:8px;height:8px;"></span></td></tr>
-        </tbody>
+        <thead><tr><th>资产</th><th>当前值</th><th>近一周</th><th>备注</th></tr></thead>
+        <tbody id="us-assets-table"></tbody>
       </table>
-      <div style="margin-top:14px;font-size:12px;color:var(--text-dim);line-height:1.7;">
-        <strong style="color:var(--text);">风格：</strong>成长反弹（纳指+1.6%，AI叙事支撑）> 防御<br>
-        <strong style="color:var(--text);">板块：</strong>能源股受益（布伦特$108急升）· 黄金$4,615仍高位 · 科技整理
-      </div>
+      <div id="us-style-note" style="margin-top:14px;font-size:12px;color:var(--text-dim);line-height:1.7;"></div>
     </div>
     <div class="us-context">
-      <h3>双线背景（W17更新）</h3>
-      <p>
-        <strong style="color:var(--text);">① 贸易战（主线）</strong><br>
-        <span class="highlight">美国对华关税145% / 中国反制125%</span>，格局未变。但市场已从4月7日恐慌（VIX~52）中修复，SPX 7,165，反映博弈对称预期已部分定价。<br><br>
-        <strong style="color:var(--text);">② 美伊战争（次线）</strong><br>
-        2026年2月底爆发，油价曾飙至$119峰值。<br>
-        停火谈判持续推进但<span class="highlight">尚未最终达成</span>，布伦特维持<span class="highlight">$99高位</span>。停火落实→油价有望回落；破裂→$110+。<br><br>
-        <strong style="color:var(--text);">美联储两难</strong><br>
-        关税通胀vs增长下行，5月6-7日FOMC是关键。<span class="highlight">降息路径预期仍不确定。</span><br><br>
-        <span class="highlight-green">当前亮点：</span>VIX 17进一步回落；DXY 98.2美元弱势；但布伦特$108急升是新的通胀风险信号。
-      </p>
+      <h3 id="us-context-title">双线背景</h3>
+      <p id="us-context-body"></p>
     </div>
   </div>
 </div>
@@ -293,74 +256,14 @@
 <!-- ==================== TAB: MARKET ==================== -->
 <div id="tab-market" class="tab-content">
   <div class="section">
-    <div class="section-title">A股市场指数 <span class="badge">5月8日收盘 · 实时抓取</span></div>
-    <div class="kpi-grid" style="grid-template-columns: repeat(4,1fr);">
-      <div class="kpi-card" style="border-top:3px solid var(--green);">
-        <div class="kpi-name">上证综指</div>
-        <div class="kpi-value">4,179.9</div>
-        <div class="kpi-change" style="color:var(--green);">▲ +1.6% 本周 · 5月8日</div>
-      </div>
-      <div class="kpi-card" style="border-top:3px solid var(--yellow);">
-        <div class="kpi-name">深证成指</div>
-        <div class="kpi-value">15,563.8</div>
-        <div class="kpi-change" style="color:var(--green);">▲ +3.0% 本周 · 5月8日</div>
-      </div>
-      <div class="kpi-card" style="border-top:3px solid var(--yellow);">
-        <div class="kpi-name">创业板指</div>
-        <div class="kpi-value">3,796.1</div>
-        <div class="kpi-change" style="color:var(--green);">▲ +3.2% 本周 · 5月8日</div>
-      </div>
-      <div class="kpi-card" style="border-top:3px solid var(--yellow);">
-        <div class="kpi-name">沪深300</div>
-        <div class="kpi-value">4,871.9</div>
-        <div class="kpi-change" style="color:var(--green);">▲ +1.3% 本周 · 5月8日</div>
-      </div>
-    </div>
-    <div style="margin-top:8px;font-size:11px;color:var(--text-dim);padding:0 4px;">✅ 指数数据来源：yfinance 实时抓取 · 5月8日（周四）收盘</div>
+    <div class="section-title">A股市场指数 <span class="badge" id="ashare-index-badge">收盘</span></div>
+    <div id="ashare-indices-grid" class="kpi-grid" style="grid-template-columns: repeat(4,1fr);"></div>
+    <div id="ashare-index-source" style="margin-top:8px;font-size:11px;color:var(--text-dim);padding:0 4px;"></div>
   </div>
 
   <div class="section">
-    <div class="section-title">行业强弱（第20周 · 通胀回归·油价飙升）</div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-      <div>
-        <h4 style="color:var(--green);font-size:13px;margin-bottom:12px;">强势行业 Top（相对收益）</h4>
-        <div class="sector-bar-container">
-          <div class="sector-label"><span>黄金/贵金属</span><span class="up">+8.5%（金价新高驱动）</span></div>
-          <div class="sector-bar-bg"><div class="sector-bar" style="width:100%;background:var(--green);"></div></div>
-        </div>
-        <div class="sector-bar-container">
-          <div class="sector-label"><span>内需消费（食品/超市）</span><span class="up">+3.2%（关税隔离）</span></div>
-          <div class="sector-bar-bg"><div class="sector-bar" style="width:75%;background:var(--green);"></div></div>
-        </div>
-        <div class="sector-bar-container">
-          <div class="sector-label"><span>军工/自主可控</span><span class="up">+4.1%（脱钩叙事）</span></div>
-          <div class="sector-bar-bg"><div class="sector-bar" style="width:82%;background:var(--green);"></div></div>
-        </div>
-        <div class="sector-bar-container">
-          <div class="sector-label"><span>农业/粮食安全</span><span class="up">+2.8%（中国暂停美豆进口）</span></div>
-          <div class="sector-bar-bg"><div class="sector-bar" style="width:60%;background:var(--green);"></div></div>
-        </div>
-      </div>
-      <div>
-        <h4 style="color:var(--red);font-size:13px;margin-bottom:12px;">弱势行业 Bottom</h4>
-        <div class="sector-bar-container">
-          <div class="sector-label"><span>出口制造（纺织/家电）</span><span class="down">-9.8%（145%关税直击）</span></div>
-          <div class="sector-bar-bg"><div class="sector-bar" style="width:100%;background:var(--red);"></div></div>
-        </div>
-        <div class="sector-bar-container">
-          <div class="sector-label"><span>港股互联网</span><span class="down">-6.2%（外资减仓）</span></div>
-          <div class="sector-bar-bg"><div class="sector-bar" style="width:63%;background:var(--red);"></div></div>
-        </div>
-        <div class="sector-bar-container">
-          <div class="sector-label"><span>地产链</span><span class="down">-3.5%（基本面仍弱）</span></div>
-          <div class="sector-bar-bg"><div class="sector-bar" style="width:36%;background:var(--red);"></div></div>
-        </div>
-        <div class="sector-bar-container">
-          <div class="sector-label"><span>机械/工程机械</span><span class="down">-5.1%（出口订单减少预期）</span></div>
-          <div class="sector-bar-bg"><div class="sector-bar" style="width:52%;background:var(--red);"></div></div>
-        </div>
-      </div>
-    </div>
+    <div class="section-title" id="sector-title">行业强弱</div>
+    <div id="sector-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;"></div>
   </div>
 
   <div class="section">
@@ -402,53 +305,7 @@
 
   <div class="section" style="margin-top:24px;">
     <div class="section-title">核心驱动变量 Top 5</div>
-    <div class="driver-grid">
-      <div class="driver-card">
-        <div class="driver-rank">#1</div>
-        <div class="driver-name">中美关税谈判</div>
-        <div class="driver-detail">
-          现状：145% / 125%全面对峙<br>
-          <strong>阈值：</strong>任何官方接触信号=反转催化<br>
-          <strong>影响：</strong>出口链、港股、全球供应链
-        </div>
-      </div>
-      <div class="driver-card">
-        <div class="driver-rank">#2</div>
-        <div class="driver-name">美伊停火/油价</div>
-        <div class="driver-detail">
-          停火谈判推进中，Brent ~$65<br>
-          <strong>阈值：</strong>Brent >$95悲观 / <$60乐观<br>
-          <strong>影响：</strong>通胀预期、PPI、美联储路径
-        </div>
-      </div>
-      <div class="driver-card">
-        <div class="driver-rank">#3</div>
-        <div class="driver-name">中国政策对冲力度</div>
-        <div class="driver-detail">
-          降准预期 + 稳外贸政策<br>
-          <strong>阈值：</strong>降准落地=流动性信号<br>
-          <strong>影响：</strong>A股内需链核心变量
-        </div>
-      </div>
-      <div class="driver-card">
-        <div class="driver-rank">#4</div>
-        <div class="driver-name">美联储滞胀两难</div>
-        <div class="driver-detail">
-          通胀3.3% + 增长下行压力<br>
-          <strong>阈值：</strong>5月FOMC措辞变化<br>
-          <strong>影响：</strong>全球利率锚与风险资产定价
-        </div>
-      </div>
-      <div class="driver-card">
-        <div class="driver-rank">#5</div>
-        <div class="driver-name">美债信用异常</div>
-        <div class="driver-detail">
-          本周美债收益率急涨后回落<br>
-          <strong>阈值：</strong>10Y再升 >4.6%=警示<br>
-          <strong>影响：</strong>黄金、美元、全球资产配置
-        </div>
-      </div>
-    </div>
+    <div id="driver-grid" class="driver-grid"></div>
   </div>
 </div>
 
@@ -483,7 +340,7 @@
       </div>
       <div class="cal-item">
         <div class="cal-date">4/19<br><span style="font-size:10px;color:var(--blue);">本周</span></div>
-        <div><div class="cal-event">本期看板更新（第20周）</div><div class="cal-stars">★★★ CPI超预期·油价飙升·峰会</div></div>
+        <div><div class="cal-event" id="cal-current-week">本期看板更新</div><div class="cal-stars" id="cal-current-stars">★★★</div></div>
       </div>
       <div class="cal-item">
         <div class="cal-date" style="color:var(--yellow);">4/28</div>
@@ -648,7 +505,7 @@
       <div class="g-name">10年期国债收益率</div>
       <div class="g-en">10-Year Government Bond Yield (CGB)</div>
       <div class="g-line">📐 国家借10年期钱需要付多少利息，资产定价的长端基准</div>
-      <div class="g-body">国债是最安全的资产，其收益率是衡量"长期无风险利率"的基准，影响股票、房产、债券等所有资产的估值。<br><br>收益率下行 = 市场避险情绪升温 或 宽松预期增强；上行 = 经济预期改善 或 供给压力增加。<br><br>当前1.769%（5月8日），处于历史低位，债市需求旺盛，市场押注央行维持宽松。</div>
+      <div class="g-body">国债是最安全的资产，其收益率是衡量"长期无风险利率"的基准，影响股票、房产、债券等所有资产的估值。<br><br>收益率下行 = 市场避险情绪升温 或 宽松预期增强；上行 = 经济预期改善 或 供给压力增加。<br><br>当前约1.77%，处于历史低位，债市需求旺盛，市场押注央行维持宽松。</div>
       <div class="g-sig">⚠️ 利率低 → 债券吸引力高，对股市影响中性；利率快速上行会压制高估值成长股</div>
     </div>
   </div>
@@ -879,7 +736,7 @@
 </div><!-- /container -->
 
 <div style="text-align:center;padding:30px 0;color:var(--text-dim);font-size:11px;border-top:1px solid var(--border);margin-top:30px;">
-  A股宏观看板 2026W20 · 数据截止 2026-05-15（yfinance实时抓取）· AI辅助编制 · 仅供研究参考，不构成投资建议<br>
+  <span id="footer-text"></span><br>
   <span style="margin-top:4px;display:inline-block;">实时更新模式：<code style="background:var(--card);padding:2px 6px;border-radius:4px;">python backend/server.py --auto-refresh 30</code> 后访问 http://127.0.0.1:8080</span>
 </div>
 
@@ -989,6 +846,142 @@ function renderDashboard() {
   <div class="watch-action">→ ${w.action} · ${w.source}</div>
 </div>`).join('');
     if (watchlistBadge) watchlistBadge.textContent = D.watchlist.length + '项';
+  }
+
+  // ── Page title (browser tab) ──
+  if (D.meta && D.meta.weekNumber) {
+    document.title = `${D.meta.title} — 2026${D.meta.weekNumber}`;
+    const pt = document.getElementById('page-title');
+    if (pt) pt.textContent = document.title;
+  }
+
+  // ── Alert banner ──
+  const alertText = document.getElementById('alert-text');
+  if (alertText && D.meta && D.meta.alertBanner) {
+    alertText.innerHTML = D.meta.alertBanner;
+  }
+
+  // ── Summary bar (4 cards) ──
+  const summaryBar = document.getElementById('summary-bar');
+  if (summaryBar && D.summary) {
+    const riskColor = D.summary.riskAppetite.includes('乐观') ? 'var(--green)' :
+                      D.summary.riskAppetite.includes('谨慎') ? 'var(--yellow)' : 'var(--red)';
+    const aColor = D.summary.aShareView.includes('涨') ? 'var(--green)' :
+                   D.summary.aShareView.includes('弱') || D.summary.aShareView.includes('跌') ? 'var(--red)' : 'var(--yellow)';
+    summaryBar.innerHTML = `
+      <div class="summary-card yellow">
+        <div class="label">本期市场主线</div>
+        <div class="value">${D.summary.marketTheme}</div>
+      </div>
+      <div class="summary-card yellow">
+        <div class="label">风险偏好</div>
+        <div class="value" style="color:${riskColor}">${D.summary.riskAppetite}</div>
+        <div style="font-size:12px;color:var(--text-dim);margin-top:4px;">${D.summary.riskAppetiteNote}</div>
+      </div>
+      <div class="summary-card yellow">
+        <div class="label">对 A 股</div>
+        <div class="value" style="color:${aColor}">${D.summary.aShareView}</div>
+        <div style="font-size:12px;color:var(--text-dim);margin-top:4px;">${D.summary.aShareViewNote}</div>
+      </div>
+      <div class="summary-card yellow">
+        <div class="label">对美股</div>
+        <div class="value">${D.summary.usView}</div>
+      </div>`;
+  }
+
+  // ── A-Share indices ──
+  const indicesGrid = document.getElementById('ashare-indices-grid');
+  const indexBadge = document.getElementById('ashare-index-badge');
+  const indexSource = document.getElementById('ashare-index-source');
+  if (indicesGrid && D.aShare && D.aShare.indices) {
+    indicesGrid.innerHTML = D.aShare.indices.map(idx => {
+      const color = idx.direction === 'up' ? 'var(--green)' : idx.direction === 'down' ? 'var(--red)' : 'var(--yellow)';
+      const arrow = idx.direction === 'up' ? '▲' : idx.direction === 'down' ? '▼' : '—';
+      return `<div class="kpi-card" style="border-top:3px solid ${color};">
+        <div class="kpi-name">${idx.name}</div>
+        <div class="kpi-value">${idx.value}</div>
+        <div class="kpi-change" style="color:${color};">${arrow} ${idx.change} 本周 · ${D.meta.dataAsOf}</div>
+      </div>`;
+    }).join('');
+    if (indexBadge) indexBadge.textContent = `${D.meta.dataAsOf}收盘 · 实时抓取`;
+    if (indexSource) indexSource.textContent = `✅ 指数数据来源：yfinance 实时抓取 · ${D.meta.dataAsOf}（周五）收盘`;
+  }
+
+  // ── Sector strength/weakness ──
+  const sectorTitle = document.getElementById('sector-title');
+  const sectorGrid = document.getElementById('sector-grid');
+  if (sectorTitle && D.meta) {
+    sectorTitle.textContent = `行业强弱（${D.meta.periodLabel} · ${D.meta.weekThemeShort || ''})`;
+  }
+  if (sectorGrid && D.aShare) {
+    const topHtml = (D.aShare.sectorsTop || []).map((s, i) => `<div class="sector-bar-container">
+      <div class="sector-label"><span>${s.name}</span><span class="up">${s.note}</span></div>
+      <div class="sector-bar-bg"><div class="sector-bar" style="width:${100 - i * 15}%;background:var(--green);"></div></div>
+    </div>`).join('');
+    const bottomHtml = (D.aShare.sectorsBottom || []).map((s, i) => `<div class="sector-bar-container">
+      <div class="sector-label"><span>${s.name}</span><span class="down">${s.note}</span></div>
+      <div class="sector-bar-bg"><div class="sector-bar" style="width:${100 - i * 15}%;background:var(--red);"></div></div>
+    </div>`).join('');
+    sectorGrid.innerHTML = `
+      <div>
+        <h4 style="color:var(--green);font-size:13px;margin-bottom:12px;">强势行业 Top（相对收益）</h4>
+        ${topHtml}
+      </div>
+      <div>
+        <h4 style="color:var(--red);font-size:13px;margin-bottom:12px;">弱势行业 Bottom</h4>
+        ${bottomHtml}
+      </div>`;
+  }
+
+  // ── US Market assets table ──
+  const usAssetsTable = document.getElementById('us-assets-table');
+  if (usAssetsTable && D.usMarketAssets) {
+    usAssetsTable.innerHTML = D.usMarketAssets.map(a => {
+      const cls = a.wowDir === 'up' ? 'up' : a.wowDir === 'down' ? 'down' : 'neutral';
+      return `<tr>
+        <td>${a.name}</td>
+        <td>${a.value}</td>
+        <td class="${cls}">${a.wow}</td>
+        <td class="${cls}">${a.note}</td>
+      </tr>`;
+    }).join('');
+  }
+  const usStyleNote = document.getElementById('us-style-note');
+  if (usStyleNote && D.usContext) {
+    usStyleNote.innerHTML = `<strong style="color:var(--text);">风格：</strong>${D.usContext.styleNote}<br>
+      <strong style="color:var(--text);">板块：</strong>${D.usContext.sectorNote}`;
+  }
+
+  // ── US Context narrative ──
+  const usContextTitle = document.getElementById('us-context-title');
+  const usContextBody = document.getElementById('us-context-body');
+  if (usContextBody && D.usContext && D.usContext.narrative) {
+    if (usContextTitle) usContextTitle.textContent = `双线背景（${D.meta.weekNumber}更新）`;
+    usContextBody.innerHTML = D.usContext.narrative.map(n =>
+      `<strong style="color:var(--text);">${n.title}</strong><br>${n.text}<br><br>`
+    ).join('');
+  }
+
+  // ── Drivers ──
+  const driverGrid = document.getElementById('driver-grid');
+  if (driverGrid && D.drivers) {
+    driverGrid.innerHTML = D.drivers.map(d => `<div class="driver-card">
+      <div class="driver-rank">#${d.rank}</div>
+      <div class="driver-name">${d.name}</div>
+      <div class="driver-detail">${d.detail}</div>
+    </div>`).join('');
+  }
+
+  // ── Calendar current week ──
+  const calWeek = document.getElementById('cal-current-week');
+  const calStars = document.getElementById('cal-current-stars');
+  if (calWeek && D.meta) calWeek.textContent = `本期看板更新（${D.meta.periodLabel}）`;
+  if (calStars && D.meta) calStars.textContent = `★★★ ${D.meta.weekThemeShort || ''}`;
+
+  // ── Footer ──
+  const footerText = document.getElementById('footer-text');
+  if (footerText && D.meta) {
+    footerText.textContent = `${D.meta.title} 2026${D.meta.weekNumber} · 数据截止 ${D.meta.dataAsOf}（yfinance实时抓取）· AI辅助编制 · 仅供研究参考，不构成投资建议`;
   }
 }
 
